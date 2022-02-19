@@ -43,12 +43,14 @@ $routes->get('/', 'Home::index');
 $routes->get('/swagger', 'Swagger::index');
 $routes->post('api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
 $routes->post('api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
+$routes->get('api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+$routes->post('api/members', '\App\Modules\Api\Controllers\Members::create');
 $routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], static function ($routes) {
     $routes->resource('users');
     $routes->resource('jabatans');
     $routes->resource('pengurus');
-    $routes->resource('wilayahs');
-    $routes->resource('members');
+    $routes->resource('wilayahs',['except' => ['index']]);
+    $routes->resource('members',['except' => ['create']]);
 });
 
 /*

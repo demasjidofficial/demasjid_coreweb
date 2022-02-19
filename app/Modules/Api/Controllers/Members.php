@@ -203,7 +203,7 @@ class Members extends BaseResourceController
         $this->model->set('path_logo', $this->getPathLogo());
         $this->model->set('path_image', $this->getPathImage());
         $this->model->set('code', $this->getCodeUnique($wilayahId));
-        log_message("error", json_encode($this->model));
+        
         return parent::create();
     }
 
